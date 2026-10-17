@@ -1,0 +1,18 @@
+export const contact = { email: 'yousefbadran6999@gmail.com', phone: '201147555067' };
+export const categories = {
+  all: ['All work', 'كل الأعمال'], branding: ['Branding', 'هوية بصرية'], social: ['Social media', 'سوشيال ميديا'], posters: ['Posters', 'بوسترات'], packaging: ['Packaging', 'تغليف']
+};
+export const projects = [
+  { id:'noir', title:['NOIR · A sense of luxury','NOIR · إحساس بالفخامة'], category:'branding', crop:[52,572,250,125], desc:['A fragrance concept built around warm gold, deep black and a cinematic product composition.','تصور بصري لعطر يمزج الذهبي الدافئ والأسود العميق مع تكوين إعلاني سينمائي.'] },
+  { id:'tasty', title:['Tasty · Made to crave','Tasty · تصميم يفتح النفس'], category:'social', crop:[315,572,257,125], desc:['A bold food campaign concept with warm colors, strong typography and an appetizing focal point.','تصور لحملة مطعم بألوان دافئة، كتابة جريئة وصورة رئيسية شهية تلفت الانتباه.'] },
+  { id:'drive', title:['Drive · The future in motion','Drive · المستقبل بيتحرك'], category:'posters', crop:[585,572,252,125], desc:['An automotive poster concept that brings speed and precision to life through electric blue and light.','تصور لبوستر سيارات يجسد السرعة والدقة من خلال الأزرق الكهربائي والإضاءة.'] },
+  { id:'future', title:['Your future starts here','مستقبلك بيبدأ هنا'], category:'social', crop:[52,708,250,129], desc:['An education campaign concept with a fresh blue palette and a clear, approachable message.','تصور لحملة تعليمية بألوان زرقاء منعشة ورسالة واضحة وقريبة من الجمهور.'] },
+  { id:'volt', title:['VOLT · Everyday essentials','VOLT · أساسيات كل يوم'], category:'packaging', crop:[315,708,257,129], desc:['A men’s skincare packaging presentation combining a clean black identity with natural accents.','عرض لتصميم عبوات عناية رجالية يجمع بين هوية سوداء بسيطة ولمسات طبيعية.'] },
+  { id:'coffee', title:['A better day, a better coffee','بداية أحلى مع كل قهوة'], category:'branding', crop:[585,708,252,129], desc:['A coffee brand concept shaped by rich browns, warm lighting and an inviting product scene.','تصور لعلامة قهوة بدرجات بنية غنية وإضاءة دافئة ومشهد منتج جذاب.'] },
+  { id:'collection', title:['New collection · New attitude','تشكيلة جديدة · شخصية مختلفة'], category:'social', crop:[52,848,250,133], desc:['A fashion campaign concept with an understated palette and a confident editorial composition.','تصور لحملة أزياء بألوان هادئة وتكوين بصري واثق مستوحى من المجلات.'] },
+  { id:'discover', title:['Discover a little more','اكتشف العالم'], category:'posters', crop:[315,848,257,133], desc:['A travel poster concept pairing an expansive coastal view with bold Arabic typography.','تصور لبوستر سفر يجمع إطلالة ساحلية واسعة مع خطوط عربية قوية.'] },
+  { id:'tech', title:['Modern tech · Feel the difference','Modern Tech · حس بالفرق'], category:'social', crop:[585,848,252,133], desc:['A technology campaign concept using violet lighting and a sculptural product composition.','تصور لحملة تقنية بإضاءة بنفسجية وتكوين منتج يبرز التفاصيل والشكل.'] }
+];
+export function selectProjects(category) { return category === 'all' ? projects : projects.filter(p => p.category === category); }
+export function inquiryBody({ name, email, service, message }) { return `Hi Youssef,\n\n${message.trim()}\n\nName: ${name.trim()}\nEmail: ${email.trim()}\nService: ${service}`; }
+export function inquiryLink(values, channel) { const body = inquiryBody(values); return channel === 'whatsapp' ? `https://wa.me/${contact.phone}?text=${encodeURIComponent(body)}` : `mailto:${contact.email}?subject=${encodeURIComponent('Design project enquiry — ' + values.name.trim())}&body=${encodeURIComponent(body)}`; }
