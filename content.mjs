@@ -14,5 +14,23 @@ export const projects = [
   { id:'tech', title:['Modern tech · Feel the difference','Modern Tech · حس بالفرق'], category:'social', crop:[585,848,252,133], desc:['A technology campaign concept using violet lighting and a sculptural product composition.','تصور لحملة تقنية بإضاءة بنفسجية وتكوين منتج يبرز التفاصيل والشكل.'] }
 ];
 export function selectProjects(category) { return category === 'all' ? projects : projects.filter(p => p.category === category); }
+export const projectDetails = {
+  noir:{palette:['#21170F','#C89B53','#F3E5CD'],tone:'#eee6da',focus:['Luxury fragrance campaign','حملة عطر فاخر'],deliverables:[['Art direction','توجيه فني'],['Campaign key visual','التصميم الرئيسي للحملة'],['Brand presentation','عرض الهوية']]},
+  tasty:{palette:['#3C1809','#FFB321','#EE4B25'],tone:'#fff0d7',focus:['Food that catches the eye','تصميم يفتح النفس'],deliverables:[['Social campaign','حملة سوشيال'],['Offer layout','تصميم عرض'],['Visual hierarchy','تسلسل بصري']]},
+  drive:{palette:['#081727','#1688D0','#CCDFF4'],tone:'#e0edf8',focus:['Movement, precision, energy','حركة ودقة وطاقة'],deliverables:[['Advertising poster','بوستر إعلاني'],['Product composition','تكوين المنتج'],['Digital banner','بانر رقمي']]},
+  future:{palette:['#1048C1','#56BFFF','#EDF8FF'],tone:'#e8f4ff',focus:['A clearer start to the future','بداية أوضح للمستقبل'],deliverables:[['Arabic typography','كتابة عربية'],['Enrollment campaign','حملة تسجيل'],['Social visual','تصميم سوشيال']]},
+  volt:{palette:['#151C1D','#698764','#DBE2DD'],tone:'#e4e9e4',focus:['Everyday care, considered design','عناية يومية بتصميم مدروس'],deliverables:[['Packaging concept','تصور عبوة'],['Product presentation','عرض المنتج'],['Visual direction','اتجاه بصري']]},
+  coffee:{palette:['#382014','#A8672D','#F0DEBE'],tone:'#eee1d2',focus:['Warmth in every detail','دفء في كل تفصيلة'],deliverables:[['Brand concept','تصور هوية'],['Product scene','مشهد منتج'],['Campaign visual','تصميم حملة']]},
+  collection:{palette:['#181C22','#697078','#E9E9E7'],tone:'#e7e9eb',focus:['A confident new collection','تشكيلة جديدة بثقة'],deliverables:[['Fashion campaign','حملة أزياء'],['Editorial layout','تكوين تحريري'],['Social visual','تصميم سوشيال']]},
+  discover:{palette:['#12245C','#41B7D7','#F0D6BE'],tone:'#e5f4f6',focus:['An invitation to explore','دعوة للاكتشاف'],deliverables:[['Travel poster','بوستر سياحي'],['Arabic typography','كتابة عربية'],['Destination campaign','حملة وجهة سياحية']]},
+  tech:{palette:['#141029','#8549E4','#CFB1FF'],tone:'#ece5fa',focus:['Technology with character','تكنولوجيا بشخصية'],deliverables:[['Product campaign','حملة منتج'],['Lighting direction','اتجاه الإضاءة'],['Social visual','تصميم سوشيال']]}
+};
+// To use a Canva export, set image to a relative PNG/WebP/JPG path here.
+// Leave it empty to preserve the original reference crop.
+projects.forEach(project => Object.assign(project, projectDetails[project.id], { image: project.image || '' }));
+export function adjacentProject(id, category, step) {
+  const items=selectProjects(category),index=items.findIndex(project=>project.id===id);
+  return items[(Math.max(0,index)+step+items.length)%items.length];
+}
 export function inquiryBody({ name, email, service, message }) { return `Hi Youssef,\n\n${message.trim()}\n\nName: ${name.trim()}\nEmail: ${email.trim()}\nService: ${service}`; }
 export function inquiryLink(values, channel) { const body = inquiryBody(values); return channel === 'whatsapp' ? `https://wa.me/${contact.phone}?text=${encodeURIComponent(body)}` : `mailto:${contact.email}?subject=${encodeURIComponent('Design project enquiry — ' + values.name.trim())}&body=${encodeURIComponent(body)}`; }

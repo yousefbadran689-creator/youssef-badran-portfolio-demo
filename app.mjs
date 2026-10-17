@@ -1,5 +1,5 @@
 import { initReviews } from './reviews.mjs';
-import { categories, projects, selectProjects, inquiryLink } from './content.mjs';
+import { categories, projects, selectProjects, adjacentProject, inquiryLink } from './content.mjs';
 const $ = selector => document.querySelector(selector);
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const motionEase = 'cubic-bezier(.22,1,.36,1)';
@@ -34,12 +34,14 @@ function cropElement(project, isDialog = false) {
   const [x,y,w,h] = project.crop;
   const art = document.createElement('div');
   art.className = 'project-art';
-  art.style.aspectRatio = `${w}/${h}`;
+  art.style.setProperty('--project-tone',project.tone);
+  const viewport=document.createElement('div');viewport.className='art-viewport';viewport.style.aspectRatio=`${w}/${h}`;
   const img = document.createElement('img');
   img.className = 'crop-image'; img.src = 'reference.png'; img.alt = text(project.title); img.width = 1536; img.height = 1024;
   img.loading = isDialog ? 'eager' : 'lazy';
-  Object.assign(img.style, {width:`${1536 / w * 100}%`,left:`${-x / w * 100}%`,top:`${-y / h * 100}%`});
-  art.append(img);
+  if(project.image){img.src=project.image;img.className='project-image';img.removeAttribute('width');img.removeAttribute('height');}
+  else Object.assign(img.style, {width:`${1536 / w * 100}%`,left:`${-x / w * 100}%`,top:`${-y / h * 100}%`});
+  viewport.append(img);art.append(viewport);
   if (!isDialog) { const overlay = document.createElement('span'); overlay.className = 'project-overlay'; overlay.setAttribute('aria-hidden','true'); art.append(overlay); }
   return art;
 }
@@ -47,14 +49,21 @@ function renderProjects(transition = false) {
   const previous = new Map([...$('#projects').children].map(card => [card.dataset.project, card.getBoundingClientRect()]));
   [...$('#projects').children].forEach(card=>revealObserver.unobserve(card));
   $('#filters').replaceChildren(...Object.entries(categories).map(([key,label]) => {
-    const button = document.createElement('button');button.className='filter';button.textContent=text(label);button.type='button';button.dataset.filter=key;button.setAttribute('aria-pressed',String(key===selectedCategory));
+    const button = document.createElement('button');button.className='filter';button.textContent=text(label);const count=document.createElement('span');count.className='filter-count';count.textContent=selectProjects(key).length;count.setAttribute('aria-hidden','true');button.append(count);button.type='button';button.dataset.filter=key;button.setAttribute('aria-pressed',String(key===selectedCategory));
     button.addEventListener('click',()=>{ if(selectedCategory===key)return; selectedCategory=key; renderProjects(true); $('#filters').querySelector(`[data-filter="${key}"]`).focus({preventScroll:true}); });return button;
   }));
   const visible = selectProjects(selectedCategory);
   $('#work-count').textContent = language === 'ar' ? `${visible.length} تصميمات` : `${String(visible.length).padStart(2,'0')} projects`;
-  $('#projects').replaceChildren(...visible.map(project=>{
+  $('#projects').replaceChildren(...visible.map((project,index)=>{
     const button=document.createElement('button');button.type='button';button.className='project-card';button.dataset.project=project.id;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-label',text(['View project: ','شوف المشروع: '])+text(project.title));button.append(cropElement(project));
-    const info=document.createElement('div');info.className='project-info';const title=document.createElement('h3');title.textContent=text(project.title);const tag=document.createElement('span');tag.textContent=text(categories[project.category]);info.append(title,tag);button.append(info);
+    const featured=selectedCategory==='all'&&index===0;button.classList.toggle('is-featured',featured);
+    const info=document.createElement('div');info.className='project-info';
+    const tag=document.createElement('span');tag.className='project-category';tag.textContent=text(categories[project.category]);
+    if(featured){const badge=document.createElement('span');badge.className='featured-label';badge.textContent=text(['IN FOCUS','تحت الضوء']);info.append(badge);}
+    const title=document.createElement('h3');title.textContent=text(project.title);
+    const summary=document.createElement('p');summary.className='project-summary';summary.textContent=text(featured?project.desc:project.focus);
+    const action=document.createElement('span');action.className='project-action';action.textContent=text(['Explore project ↗','اكتشف المشروع ↗']);
+    info.append(tag,title,summary,action);button.append(info);
     button.addEventListener('click',()=>openProject(project));return button;
   }));
   if (transition) {
@@ -74,7 +83,16 @@ function renderServices(){
   }));
   observeReveals($('#services-grid').children,65);
 }
-function updateDialog(project){$('#dialog-category').textContent=text(categories[project.category]);$('#dialog-title').textContent=text(project.title);$('#dialog-description').textContent=text(project.desc);$('#dialog-art').replaceChildren(cropElement(project,true));}
+function updateDialog(project){
+  $('#dialog-category').textContent=text(categories[project.category]);$('#dialog-title').textContent=text(project.title);$('#dialog-description').textContent=text(project.desc);$('#dialog-art').replaceChildren(cropElement(project,true));
+  $('#dialog-deliverables').replaceChildren(...project.deliverables.map(pair=>{const item=document.createElement('li');item.textContent=text(pair);return item;}));
+  $('#dialog-palette').replaceChildren(...project.palette.map(color=>{const swatch=document.createElement('li');const dot=document.createElement('span');dot.className='palette-dot';dot.style.backgroundColor=color;dot.setAttribute('aria-hidden','true');swatch.append(dot,color);return swatch;}));
+  const items=selectProjects(selectedCategory);$('#dialog-position').textContent=`${items.findIndex(item=>item.id===project.id)+1} / ${items.length}`;
+  $('#previous-project').disabled=items.length<2;$('#next-project').disabled=items.length<2;
+}
+function moveProject(step){if(!selectedProject||dialogClosing)return;selectedProject=adjacentProject(selectedProject.id,selectedCategory,step);updateDialog(selectedProject);$('#project-dialog').scrollTop=0;animateElement($('#dialog-art'),[{opacity:.3,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});}
+$('#previous-project').addEventListener('click',()=>moveProject(-1));$('#next-project').addEventListener('click',()=>moveProject(1));
+$('#project-dialog').addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key)||event.target.matches('input,textarea,select'))return;event.preventDefault();moveProject((event.key==='ArrowRight'?1:-1)*(language==='ar'?-1:1));});
 let dialogClosing = false;
 function openProject(project){
   selectedProject=project;updateDialog(project);$('#project-dialog').showModal();document.body.style.overflow='hidden';

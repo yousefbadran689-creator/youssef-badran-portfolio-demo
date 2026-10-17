@@ -27,3 +27,7 @@ Publish this folder with GitHub Pages: Settings → Pages → Deploy from a bran
 Business contact: WhatsApp +201147555067 · yousefbadran6999@gmail.com
 
 Portfolio artwork and photographs belong to their respective owners. No open-source license is granted for artwork by this demo.
+
+## Gallery updates
+The gallery features a lead project, category counts, color palettes, design elements, and previous/next project navigation.
+To replace a project image with a Canva export, upload the PNG/WebP/JPG next to index.html and add image: "noir.webp" to that project object in content.mjs. Reorder the projects array to change the display order. Canva edits do not sync automatically.
