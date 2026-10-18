@@ -12,7 +12,7 @@
 ## Demo limitations
 Review submission is intentionally disabled until a database is connected. No reviews are fabricated or shared between visitors in this demo. The review configuration contains no credentials.
 
-Artwork and portraits are displayed from the supplied portfolio reference image. Projects are labeled as design concepts. Original high-resolution project assets can replace these later.
+The six gallery campaigns use new Canva-generated photography with editable typography and graphic layout. Website files use static WebP renders; all projects are design concepts. The portrait sections retain the supplied reference image.
 
 ## Hosting
 Publish this folder with GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root). No build step is required. Keep .nojekyll in the root.
@@ -21,6 +21,7 @@ Publish this folder with GitHub Pages: Settings → Pages → Deploy from a bran
 - index.html: content and contact details
 - styles.css: layout and animation styles
 - content.mjs: projects and categories
+- project-*.webp: the six current gallery campaign images; replace the matching file after exporting an edited Canva page
 - app.mjs: navigation, language, gallery and motion
 - reviews.mjs, review-api.mjs, reviews-config.mjs: review interface and optional backend adapter
 
@@ -28,6 +29,4 @@ Business contact: WhatsApp +201147555067 · yousefbadran6999@gmail.com
 
 Portfolio artwork and photographs belong to their respective owners. No open-source license is granted for artwork by this demo.
 
-## Gallery updates
-The gallery features a lead project, category counts, color palettes, design elements, and previous/next project navigation.
-To replace a project image with a Canva export, upload the PNG/WebP/JPG next to index.html and add image: "noir.webp" to that project object in content.mjs. Reorder the projects array to change the display order. Canva edits do not sync automatically.
+Canva changes do not sync automatically. Export the edited page as an image and replace its matching project image. The website does not expose private Canva editing links.

@@ -31,7 +31,7 @@ const services = [
   {title:['Packaging design','تصميم العبوات'],body:['Thoughtful packaging concepts that help your product look as good as what’s inside.','تصورات لعبوات بتفاصيل مدروسة تبرز منتجك وتعكس قيمته.'],service:'Packaging design',path:'M12 3l9 5-9 5-9-5z M3 8v8l9 5 9-5V8 M12 13v8 M7.5 5.5l9 5'}
 ];
 function cropElement(project, isDialog = false) {
-  const [x,y,w,h] = project.crop;
+  const [x,y,w,h] = project.crop || [0,0,project.width,project.height];
   const art = document.createElement('div');
   art.className = 'project-art';
   art.style.setProperty('--project-tone',project.tone);
