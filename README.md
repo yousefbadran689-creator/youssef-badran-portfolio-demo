@@ -5,6 +5,7 @@
 ## Features
 - Arabic / English with RTL support and saved language preference.
 - Responsive portfolio, category filters and project dialogs.
+- Full-screen artwork viewer with fit, 1–3x zoom, double click, touch pinch/pan and Escape support.
 - Scroll reveals, hover effects and reduced-motion support.
 - WhatsApp and email inquiry links; messages are reviewed and sent by the visitor.
 - Client reviews interface with 1–5 stars, name and comment.
@@ -23,6 +24,7 @@ Publish this folder with GitHub Pages: Settings → Pages → Deploy from a bran
 - content.mjs: projects and categories
 - project-*.webp: the six current gallery campaign images; replace the matching file after exporting an edited Canva page
 - app.mjs: navigation, language, gallery and motion
+- image-viewer.mjs: full artwork display, zoom and touch controls
 - reviews.mjs, review-api.mjs, reviews-config.mjs: review interface and optional backend adapter
 
 Business contact: WhatsApp +201147555067 · yousefbadran6999@gmail.com

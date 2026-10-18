@@ -1,4 +1,5 @@
 import { initReviews } from './reviews.mjs';
+import { initImageViewer } from './image-viewer.mjs';
 import { categories, projects, selectProjects, adjacentProject, inquiryLink } from './content.mjs';
 const $ = selector => document.querySelector(selector);
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -55,16 +56,16 @@ function renderProjects(transition = false) {
   const visible = selectProjects(selectedCategory);
   $('#work-count').textContent = language === 'ar' ? `${visible.length} تصميمات` : `${String(visible.length).padStart(2,'0')} projects`;
   $('#projects').replaceChildren(...visible.map((project,index)=>{
-    const button=document.createElement('button');button.type='button';button.className='project-card';button.dataset.project=project.id;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-label',text(['View project: ','شوف المشروع: '])+text(project.title));button.append(cropElement(project));
+    const button=document.createElement('button');button.type='button';button.className='project-card';button.dataset.project=project.id;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-label',text(['Open full image: ','افتح الصورة كاملة: '])+text(project.title));button.append(cropElement(project));
     const featured=selectedCategory==='all'&&index===0;button.classList.toggle('is-featured',featured);
     const info=document.createElement('div');info.className='project-info';
     const tag=document.createElement('span');tag.className='project-category';tag.textContent=text(categories[project.category]);
     if(featured){const badge=document.createElement('span');badge.className='featured-label';badge.textContent=text(['IN FOCUS','تحت الضوء']);info.append(badge);}
     const title=document.createElement('h3');title.textContent=text(project.title);
     const summary=document.createElement('p');summary.className='project-summary';summary.textContent=text(featured?project.desc:project.focus);
-    const action=document.createElement('span');action.className='project-action';action.textContent=text(['Explore project ↗','اكتشف المشروع ↗']);
+    const action=document.createElement('span');action.className='project-action';action.textContent=text(['Open full image ⤢','افتح الصورة كاملة ⤢']);
     info.append(tag,title,summary,action);button.append(info);
-    button.addEventListener('click',()=>openProject(project));return button;
+    button.addEventListener('click',()=>imageViewer.open(project));return button;
   }));
   if (transition) {
     [...$('#projects').children].forEach((card,index)=>{
@@ -84,7 +85,9 @@ function renderServices(){
   observeReveals($('#services-grid').children,65);
 }
 function updateDialog(project){
-  $('#dialog-category').textContent=text(categories[project.category]);$('#dialog-title').textContent=text(project.title);$('#dialog-description').textContent=text(project.desc);$('#dialog-art').replaceChildren(cropElement(project,true));
+  $('#dialog-category').textContent=text(categories[project.category]);$('#dialog-title').textContent=text(project.title);$('#dialog-description').textContent=text(project.desc);
+  const imageButton=document.createElement('button');imageButton.type='button';imageButton.className='dialog-image-open';imageButton.setAttribute('aria-label',text(['Open full image: ','افتح الصورة كاملة: '])+text(project.title));imageButton.setAttribute('aria-haspopup','dialog');imageButton.append(cropElement(project,true));
+  const imageHint=document.createElement('span');imageHint.className='image-open-hint';imageHint.textContent=text(['Open full image ⤢','افتح الصورة كاملة ⤢']);imageButton.append(imageHint);imageButton.addEventListener('click',()=>imageViewer.open(project));$('#dialog-art').replaceChildren(imageButton);
   $('#dialog-deliverables').replaceChildren(...project.deliverables.map(pair=>{const item=document.createElement('li');item.textContent=text(pair);return item;}));
   $('#dialog-palette').replaceChildren(...project.palette.map(color=>{const swatch=document.createElement('li');const dot=document.createElement('span');dot.className='palette-dot';dot.style.backgroundColor=color;dot.setAttribute('aria-hidden','true');swatch.append(dot,color);return swatch;}));
   const items=selectProjects(selectedCategory);$('#dialog-position').textContent=`${items.findIndex(item=>item.id===project.id)+1} / ${items.length}`;
@@ -106,10 +109,11 @@ async function closeProject(){
   dialog.close();dialogClosing=false;
 }
 $('#project-dialog').addEventListener('cancel',event=>{event.preventDefault();closeProject();});
-$('#project-dialog').addEventListener('close',()=>{document.body.style.overflow='';selectedProject=null;});
+$('#project-dialog').addEventListener('close',()=>{document.body.style.overflow=$('#image-viewer').open?'hidden':'';selectedProject=null;});
 $('#close-dialog').addEventListener('click',closeProject);
 $('#project-dialog').addEventListener('click',event=>{const box=event.currentTarget.getBoundingClientRect();if(event.target===event.currentTarget&&(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom))closeProject();});
 $('#similar-project').addEventListener('click',async event=>{event.preventDefault();if(selectedProject){const map={branding:'Brand identity',social:'Social media design',posters:'Poster and banner',packaging:'Packaging design'};$('#service-select').value=map[selectedProject.category];}await closeProject();location.hash='contact';});
+const imageViewer=initImageViewer({getLanguage:()=>language,isOtherDialogOpen:()=>$('#project-dialog').open,onDetails:project=>{if($('#project-dialog').open){selectedProject=project;updateDialog(project);}else openProject(project);}});
 function setMenu(open){$('#menu').setAttribute('aria-expanded',String(open));$('#navigation').classList.toggle('open',open);$('#menu').setAttribute('aria-label',text(open?['Close menu','اقفل القائمة']:['Open menu','افتح القائمة']));}
 $('#menu').addEventListener('click',()=>setMenu($('#menu').getAttribute('aria-expanded')!=='true'));
 document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
@@ -121,7 +125,7 @@ function applyLanguage(){
   const languageButton=$('#language');languageButton.textContent=language==='ar'?'EN':'عربي';languageButton.lang=language==='ar'?'en':'ar';languageButton.setAttribute('aria-label',language==='ar'?'Switch to English':'Switch to Arabic');
   $('#navigation').setAttribute('aria-label',text(['Main navigation','القائمة الرئيسية']));$('#filters').setAttribute('aria-label',text(['Filter projects','تصفية الأعمال']));$('#close-dialog').setAttribute('aria-label',text(['Close project','اقفل المشروع']));
   document.title=text(['Youssef Badran — Graphic Designer','يوسف بدران — مصمم جرافيك']);
-  $('#form-status').textContent='';setMenu(false);renderProjects();renderServices();if(selectedProject)updateDialog(selectedProject);reviewsUI?.refreshText();
+  $('#form-status').textContent='';setMenu(false);renderProjects();renderServices();if(selectedProject)updateDialog(selectedProject);reviewsUI?.refreshText();imageViewer.refreshText();
 }
 $('#language').addEventListener('click',()=>{language=language==='en'?'ar':'en';try{localStorage.setItem('yb-language',language);}catch{}applyLanguage();});
 $('#contact-form').addEventListener('submit',event=>{

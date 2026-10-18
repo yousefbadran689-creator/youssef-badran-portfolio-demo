@@ -145,3 +145,31 @@ html[dir=rtl] .is-featured .project-info{padding-inline:0 18px}
 .project-card .art-viewport{border-radius:0;box-shadow:none}
 #dialog-art .project-art{padding:0;overflow:hidden}
 #dialog-art .art-viewport{max-width:740px;box-shadow:none;border-radius:0}
+
+/* Full artwork viewer. Images fit the viewport before any optional zoom. */
+.dialog-image-open{position:relative;display:block;width:100%;padding:0;border:0;background:transparent;cursor:zoom-in;text-align:inherit;border-radius:16px}
+.image-open-hint{position:absolute;inset-inline-end:14px;bottom:14px;background:#fffef1ed;color:#161229;padding:10px 14px;border-radius:999px;font-size:12px;box-shadow:0 4px 20px #0002}
+.dialog-image-open:focus-visible{outline:3px solid var(--purple);outline-offset:5px}
+#image-viewer{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:#0d0c13;color:#f4f2fa;overflow:hidden;overscroll-behavior:contain}
+#image-viewer[open]{display:flex;flex-direction:column}
+#image-viewer::backdrop{background:#0d0c13}
+.viewer-toolbar{display:flex;align-items:center;gap:20px;flex-shrink:0;padding:14px max(20px,env(safe-area-inset-right)) 14px max(20px,env(safe-area-inset-left));border-bottom:1px solid #ffffff18}
+.viewer-toolbar h2{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px;font-weight:550;line-height:1.4;letter-spacing:0;color:#f4f2fa}
+.viewer-tools{display:flex;align-items:center;gap:8px;direction:ltr}
+.viewer-tools button,.viewer-footer button{min-width:44px;min-height:44px;padding:8px 12px;border:1px solid #ffffff30;border-radius:10px;background:#ffffff0d;color:#f4f2fa;font:inherit;cursor:pointer;touch-action:manipulation}
+.viewer-tools button{font-size:23px;line-height:1}
+.viewer-tools .viewer-fit{font-size:13px;padding-inline:17px}
+.viewer-tools .viewer-close{margin-inline-start:12px;font-size:28px;background:#ffffff15}
+.viewer-tools button:disabled{opacity:.3;cursor:default}
+.viewer-tools output{min-width:52px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}
+.viewer-tools button:focus-visible,.viewer-footer button:focus-visible,.viewer-stage:focus-visible{outline:2px solid #b6a5ff;outline-offset:-3px}
+.viewer-stage{flex:1;min-height:0;min-width:0;position:relative;overflow:auto;direction:ltr;touch-action:none;cursor:zoom-in;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#706b84 #15131e}
+.viewer-stage[data-zoomed=true]{cursor:grab}.viewer-stage.is-dragging{cursor:grabbing}
+.viewer-track{min-width:100%;min-height:100%;display:grid;place-items:center;position:relative}
+#viewer-image{display:block;max-width:none;max-height:none;object-fit:contain;pointer-events:none;user-select:none;-webkit-user-drag:none}
+#viewer-image[hidden],#viewer-error[hidden]{display:none}
+.viewer-error{position:absolute;inset:50% 20px auto;text-align:center;color:#eee9ff;font-size:14px}
+#image-viewer .viewer-footer{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;gap:20px;width:100%;margin:0;padding:12px 24px max(12px,env(safe-area-inset-bottom));border-top:1px solid #ffffff18;background:#14121e}
+.viewer-footer p{order:0;width:auto;margin:0;text-align:start;color:#b8b3c8;font-size:12px;line-height:1.6}
+.viewer-footer button{font-size:13px;white-space:nowrap;background:#6243d9;border-color:#8060f1}
+@media(max-width:620px){.viewer-toolbar{flex-wrap:wrap;gap:8px;padding:12px 14px}.viewer-toolbar h2{flex-basis:100%;font-size:14px}.viewer-tools{width:100%;gap:6px}.viewer-tools .viewer-close{margin-inline-start:auto}#image-viewer .viewer-footer{gap:12px;padding:10px 14px max(10px,env(safe-area-inset-bottom))}.viewer-footer p{font-size:10px}.viewer-footer button{font-size:12px}.image-open-hint{font-size:10px;bottom:10px;inset-inline-end:10px}}

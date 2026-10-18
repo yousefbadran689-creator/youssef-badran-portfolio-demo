@@ -9,8 +9,8 @@
   <meta property="og:description" content="Brand identity, social media, posters and packaging. Explore the portfolio and start your next design project.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="app.mjs"></script>
+<link rel="stylesheet" href="styles.css?v=viewer1">
+<script type="module" src="app.mjs?v=viewer1"></script>
 </head>
 <body>
 <a class="skip-link" href="#work" data-en="Skip to work" data-ar="انتقل للأعمال">Skip to work</a>
@@ -76,5 +76,10 @@
 </main>
 <footer><a class="brand" href="#home"><span class="monogram" aria-hidden="true"><b>Y</b>B</span><span>Youssef Badran</span></a><p>© <span id="year">2026</span> Youssef Badran. <span data-en="Designed to make a difference." data-ar="تصميم يسيب بصمة.">Designed to make a difference.</span></p><a class="back-top" href="#home"><span data-en="Back to top" data-ar="ارجع لفوق">Back to top</span> ↑</a></footer>
 <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><p class="eyebrow" id="dialog-category"></p><button class="icon-button" id="close-dialog" aria-label="Close project">×</button></div><div id="dialog-art"></div><div class="dialog-copy"><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="project-details"><section><h3 data-en="Design elements" data-ar="عناصر التصميم">Design elements</h3><ul id="dialog-deliverables"></ul></section><section><h3 data-en="Color direction" data-ar="اتجاه الألوان">Color direction</h3><ul id="dialog-palette"></ul></section></div><p class="dialog-note" data-en="Design concept · Portfolio selection" data-ar="تصور تصميمي · من مختارات الأعمال">Design concept · Portfolio selection</p><a class="button" id="similar-project" href="#contact"><span data-en="Let’s create your next project" data-ar="نصمم مشروعك الجاي">Let’s create your next project</span><span aria-hidden="true">↗</span></a></div><nav class="project-pagination" aria-label="Project navigation"><button id="previous-project" type="button" data-en="Previous project" data-ar="المشروع السابق">Previous project</button><span id="dialog-position" role="status" aria-live="polite"></span><button id="next-project" type="button" data-en="Next project" data-ar="المشروع التالي">Next project</button></nav></dialog>
+<dialog id="image-viewer" aria-labelledby="viewer-title">
+  <header class="viewer-toolbar"><h2 id="viewer-title">Artwork</h2><div class="viewer-tools"><button id="viewer-zoom-out" type="button" aria-label="Zoom out">−</button><output id="viewer-zoom" aria-live="polite" aria-atomic="true">100%</output><button id="viewer-zoom-in" type="button" aria-label="Zoom in">+</button><button id="viewer-fit" class="viewer-fit" type="button">Fit</button><button id="viewer-close" class="viewer-close" type="button" aria-label="Close image" autofocus>×</button></div></header>
+  <div id="viewer-stage" class="viewer-stage" tabindex="0"><div id="viewer-track" class="viewer-track"><img id="viewer-image" alt="" draggable="false"><p id="viewer-error" class="viewer-error" role="alert" hidden></p></div></div>
+  <footer class="viewer-footer"><p id="viewer-hint"></p><button id="viewer-details" type="button">Project details ↗</button></footer>
+</dialog>
 <noscript><p class="noscript">Enable JavaScript to view and filter projects. Contact: <a href="mailto:yousefbadran6999@gmail.com">yousefbadran6999@gmail.com</a>.</p></noscript>
 </body></html>
