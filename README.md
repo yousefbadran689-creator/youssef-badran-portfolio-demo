@@ -1,34 +1,24 @@
 # Youssef Badran — Portfolio Demo
 
-نسخة تجريبية من موقع يوسف بدران، مصمم جرافيك. واجهة عربية وإنجليزية مع تصميم متجاوب وحركات انتقال ومعرض أعمال قابل للتصفية.
+Bilingual multi-page graphic design portfolio with 21 concept campaigns and a local demo editor.
 
-## Features
-- Arabic / English with RTL support and saved language preference.
-- Responsive portfolio, category filters and project dialogs.
-- Full-screen artwork viewer with fit, 1–3x zoom, double click, touch pinch/pan and Escape support.
-- Scroll reveals, hover effects and reduced-motion support.
-- WhatsApp and email inquiry links; messages are reviewed and sent by the visitor.
-- Client reviews interface with 1–5 stars, name and comment.
+## Pages
+- Home: index.html
+- All work: portfolio.html
+- Project details: project.html?id=aura
+- About: about.html
+- Services: services.html
+- Reviews: reviews.html
+- Contact: contact.html
+- Demo editor: admin.html
 
-## Demo limitations
-Review submission is intentionally disabled until a database is connected. No reviews are fabricated or shared between visitors in this demo. The review configuration contains no credentials.
+## Editing and publishing
+The demo editor can add, edit, remove, undo, reorder and feature work, import/export a catalog, upload raster images, and edit public contact details. It stores a browser-local draft. It has no authentication, server write API or automatic publishing. Export portfolio-data.json and upload it to main at the repository root to publish changes. Public pages never read the admin draft. Uploads are embedded as bounded raster data URLs.
 
-The six gallery campaigns use new Canva-generated photography with editable typography and graphic layout. Website files use static WebP renders; all projects are design concepts. The portrait sections retain the supplied reference image.
+The public catalog is validated before use; content.mjs supplies a bundled fallback. Do not add credentials, private Canva edit links, or private notes to public files. Canva updates require exporting an image and replacing its project asset or using the demo editor upload.
 
-## Hosting
-Publish this folder with GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root). No build step is required. Keep .nojekyll in the root.
+Review submission is disabled until a real backend is connected. The form does not fabricate saved reviews. All gallery entries are design concepts, not claims of client commissions. Artwork photos include AI-generated content. The supplied reference remains in the portrait sections.
 
-## Editing
-- index.html: content and contact details
-- styles.css: layout and animation styles
-- content.mjs: projects and categories
-- project-*.webp: the six current gallery campaign images; replace the matching file after exporting an edited Canva page
-- app.mjs: navigation, language, gallery and motion
-- image-viewer.mjs: full artwork display, zoom and touch controls
-- reviews.mjs, review-api.mjs, reviews-config.mjs: review interface and optional backend adapter
+GitHub Pages: main branch / root; no build step. Keep .nojekyll.
 
-Business contact: WhatsApp +201147555067 · yousefbadran6999@gmail.com
-
-Portfolio artwork and photographs belong to their respective owners. No open-source license is granted for artwork by this demo.
-
-Canva changes do not sync automatically. Export the edited page as an image and replace its matching project image. The website does not expose private Canva editing links.
+Business contact: WhatsApp +201147555067 · yousefbadran6999@gmail.com. No open-source license is granted for the artwork.
