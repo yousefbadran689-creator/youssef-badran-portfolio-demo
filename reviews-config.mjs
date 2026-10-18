@@ -1,2 +1,2 @@
-// Public configuration only. Never put a service-role or secret key in browser code.
-export const reviewConfig = { url: '', publishableKey: '' };
+import {backendConfig} from './backend-config.mjs?v=cloud1';
+export const reviewConfig=backendConfig;

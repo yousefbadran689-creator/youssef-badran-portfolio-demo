@@ -6,7 +6,7 @@ export function initReviews({getLanguage, animate}) {
   const form = find('#review-form');
   if (!form) return {refreshText(){}};
   const t = values => values[getLanguage()==='ar'?1:0];
-  const {configured,request:api} = createReviewApi(reviewConfig);
+  const {configured,request:api} = createReviewApi(document.body.dataset.offline||location.protocol==='file:'?{url:'',publishableKey:''}:reviewConfig);
   const labels = [['Choose a rating','اختار عدد النجوم'],['Poor','ضعيف'],['Fair','مقبول'],['Good','جيد'],['Very good','جيد جدًا'],['Excellent','ممتاز']];
   let rows=[],total=0,average=null,loading=false,sending=false,loadError=false,status='',submissionId=null,requestId=0,loadController;
   const selected = () => Number(form.elements.rating.value || 0);
@@ -71,7 +71,7 @@ export function initReviews({getLanguage, animate}) {
     if(!form.reportValidity())return;
     submissionId ||= crypto.randomUUID();sending=true;status='';render();
     try{
-      await api('portfolio_reviews',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({...values,submission_id:submissionId})});
+      await api('portfolio_reviews',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({...values,consent:true,submission_id:submissionId})});
       status='success';form.reset();submissionId=null;
     }catch(error){if(error.code==='23505'){status='success';form.reset();submissionId=null;}else{status='error';}}
     finally{sending=false;render();if(status==='success')animate?.(find('#review-submit-status'),[{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],{duration:300});}

@@ -1,12 +1,12 @@
 import {initReviews} from './reviews.mjs';
 import {initImageViewer} from './image-viewer.mjs';
-import {categories,contact,inquiryLink} from './content.mjs?v=pages2';
-import {loadPublicCatalog} from './load-catalog.mjs?v=pages2';
-import {services} from './services.mjs?v=pages2';
+import {categories,contact,inquiryLink} from './content.mjs?v=cloud1';
+import {loadPublicCatalog} from './load-catalog.mjs?v=cloud1';
+import {services} from './services.mjs?v=cloud1';
 
 const $=selector=>document.querySelector(selector);
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-let language='en',catalog=null,selectedCategory='all',reviewsUI=null;
+let language='en',catalog=null,selectedCategory='all',reviewsUI=null,visibleProjects=12;
 try{language=localStorage.getItem('yb-language')==='ar'?'ar':'en';}catch{}
 const text=pair=>pair[language==='ar'?1:0];
 const page=document.body.dataset.page;
@@ -27,11 +27,12 @@ function renderProjects(){
  const query=($('#project-search')?.value||'').trim().toLocaleLowerCase();
  const all=catalog.projects;
  const filtered=all.filter(project=>(selectedCategory==='all'||project.category===selectedCategory)&&(!query||[...project.title,...project.focus,...project.desc,...categories[project.category]].some(value=>value.toLocaleLowerCase().includes(query))));
- const visible=list.dataset.limit?filtered.slice(0,Number(list.dataset.limit)):filtered;
+ const visible=filtered.slice(0,list.dataset.limit?Number(list.dataset.limit):visibleProjects);
+ if($('#project-load-more'))$('#project-load-more').hidden=visible.length>=filtered.length;
  if($('#filters'))$('#filters').replaceChildren(...Object.entries(categories).map(([key,label])=>{
   const button=node('button','filter',text(label));button.type='button';button.dataset.filter=key;button.setAttribute('aria-pressed',String(key===selectedCategory));
   const count=node('span','filter-count',String(key==='all'?all.length:all.filter(project=>project.category===key).length));count.setAttribute('aria-hidden','true');button.append(count);
-  button.addEventListener('click',()=>{selectedCategory=key;renderProjects();$('#filters').querySelector(`[data-filter="${key}"]`).focus({preventScroll:true});});return button;
+  button.addEventListener('click',()=>{selectedCategory=key;visibleProjects=12;renderProjects();$('#filters').querySelector(`[data-filter="${key}"]`).focus({preventScroll:true});});return button;
  }));
  if($('#work-count'))$('#work-count').textContent=text([`${filtered.length} projects`,`${filtered.length} تصميم`]);
  if($('#project-empty'))$('#project-empty').hidden=filtered.length>0;
@@ -96,7 +97,7 @@ async function boot(){
  document.querySelectorAll('[data-page-link]').forEach(link=>{const active=link.dataset.pageLink===page||(page==='project'&&link.dataset.pageLink==='portfolio');link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','page');});
  $('#menu').addEventListener('click',()=>setMenu($('#menu').getAttribute('aria-expanded')!=='true'));document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false);});document.addEventListener('click',event=>{if(!event.target.closest('.site-header'))setMenu(false);});
  $('#language').addEventListener('click',()=>{language=language==='en'?'ar':'en';try{localStorage.setItem('yb-language',language);}catch{}applyLanguage();});
- $('#project-search')?.addEventListener('input',renderProjects);initContact();reviewsUI=initReviews({getLanguage:()=>language,animate});$('#year').textContent=new Date().getFullYear();applyLanguage();
+ $('#project-search')?.addEventListener('input',()=>{visibleProjects=12;renderProjects();});$('#project-load-more')?.addEventListener('click',()=>{visibleProjects+=12;renderProjects();});initContact();reviewsUI=initReviews({getLanguage:()=>language,animate});$('#year').textContent=new Date().getFullYear();applyLanguage();
  reveal(document.querySelectorAll('.page-intro,.section-heading,.about-copy,.about-art,.process,.contact-copy,#contact-form,#review-form,.review-summary,.page-callout'));
  animate($('.site-header'),[{opacity:0,transform:'translateY(-10px)'},{opacity:1,transform:'translateY(0)'}]);
  document.querySelectorAll('.hero-copy>*').forEach((element,index)=>animate(element,[{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'translateY(0)'}],{delay:index*70}));

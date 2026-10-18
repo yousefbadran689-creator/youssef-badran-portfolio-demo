@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    {
+      "package": "@supabase/supabase-js",
+      "version": "2.118.0",
+      "source": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js",
+      "localFile": "supabase-sdk.mjs",
+      "localAdaptation": "Appended ESM createClient export to official prebuilt UMD bundle.",
+      "sha256": "1dffe1e0d4d24ffc4be828b86daca13a96d9081314b09d0679a34b6716c159b7",
+      "license": "MIT",
+      "licenseFile": "SDK-LICENSE.txt"
+    }
+  ]
+}

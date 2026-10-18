@@ -31,6 +31,1176 @@ export const profile={
 };
 export const projects=[
   {
+    "id": "mesa",
+    "title": [
+      "MESA · Made to be shared.",
+      "ميزا · لمّة بطعم مختلف"
+    ],
+    "desc": [
+      "An independent MESA campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة مطعم بتصوير أطباق دافئ وتوزيع تحريري يدعو للمشاركة."
+    ],
+    "focus": [
+      "Bring everyone to the table.",
+      "لمّة بطعم مختلف"
+    ],
+    "category": "social",
+    "image": "project-mesa.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#43251D",
+      "#43251D",
+      "#6A2920"
+    ],
+    "tone": "#6A2920",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "vela",
+    "title": [
+      "VELA · Leave a little mystery.",
+      "فيلا · أثر لا يُنسى"
+    ],
+    "desc": [
+      "An independent VELA packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور عطر بزجاج بنفسجي وانعكاسات ضوئية وكتابة أنيقة."
+    ],
+    "focus": [
+      "An impression that stays.",
+      "أثر لا يُنسى"
+    ],
+    "category": "packaging",
+    "image": "project-vela.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#EFE6FF",
+      "#B7A1FF",
+      "#241A41"
+    ],
+    "tone": "#241A41",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "pulse",
+    "title": [
+      "PULSE · Your day. In motion.",
+      "بالس · يومك بإيقاعك"
+    ],
+    "desc": [
+      "An independent PULSE campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة ساعة ذكية بألوان مرجانية وتفاصيل تقنية وتباين واضح."
+    ],
+    "focus": [
+      "Keep your own rhythm.",
+      "يومك بإيقاعك"
+    ],
+    "category": "social",
+    "image": "project-pulse.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#172F38",
+      "#E16E52",
+      "#DAE8E7"
+    ],
+    "tone": "#DAE8E7",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "aero",
+    "title": [
+      "AERO · Go a little further.",
+      "إيرو · خطوة أبعد"
+    ],
+    "desc": [
+      "An independent AERO campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة سفر بحقيبة مريمية ومساحة هادئة وتوجيه فني معاصر."
+    ],
+    "focus": [
+      "Pack a new perspective.",
+      "خطوة أبعد"
+    ],
+    "category": "posters",
+    "image": "project-aero.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#253E35",
+      "#536F56",
+      "#DCE1CD"
+    ],
+    "tone": "#DCE1CD",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "riva",
+    "title": [
+      "RIVA · A new perspective.",
+      "ريفا · نظرة مختلفة"
+    ],
+    "desc": [
+      "An independent RIVA campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة نظارات بزجاج كهرماني وضوء شمسي وتكوين دقيق."
+    ],
+    "focus": [
+      "See the everyday differently.",
+      "نظرة مختلفة"
+    ],
+    "category": "social",
+    "image": "project-riva.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#3C2217",
+      "#8B4C20",
+      "#E9CB97"
+    ],
+    "tone": "#E9CB97",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "brume",
+    "title": [
+      "BRUME · A quieter moment.",
+      "بروم · لحظة هدوء"
+    ],
+    "desc": [
+      "An independent BRUME packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور شموع بروح لافندر وخامات زجاجية وضوء ناعم."
+    ],
+    "focus": [
+      "Let the room exhale.",
+      "لحظة هدوء"
+    ],
+    "category": "packaging",
+    "image": "project-brume.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#483C63",
+      "#7C65A1",
+      "#E7DFF0"
+    ],
+    "tone": "#E7DFF0",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "alto",
+    "title": [
+      "ALTO · Make room for the ride.",
+      "ألتو · مساحة للمشوار"
+    ],
+    "desc": [
+      "An independent ALTO brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "اتجاه هوية لدراجة كهربائية بخلفية معمارية ومسافات مدروسة."
+    ],
+    "focus": [
+      "A lighter way through the city.",
+      "مساحة للمشوار"
+    ],
+    "category": "branding",
+    "image": "project-alto.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#173A37",
+      "#547E66",
+      "#DEE7D8"
+    ],
+    "tone": "#DEE7D8",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "oro",
+    "title": [
+      "ORO · Quietly remarkable.",
+      "أورو · تفاصيل لافتة"
+    ],
+    "desc": [
+      "An independent ORO brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "هوية مجوهرات تجمع لمعان الذهب مع تكوين نحتي وخط تحريري."
+    ],
+    "focus": [
+      "Small details. Lasting presence.",
+      "تفاصيل لافتة"
+    ],
+    "category": "branding",
+    "image": "project-oro.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F5E3BB",
+      "#C3A273",
+      "#31251C"
+    ],
+    "tone": "#31251C",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "sora",
+    "title": [
+      "SORA · A little ritual.",
+      "سورا · طقس بسيط"
+    ],
+    "desc": [
+      "An independent SORA packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور ماتشا بخزف حرفي وأخضر طبيعي وتوازن بين المنتج والكتابة."
+    ],
+    "focus": [
+      "Make a moment of it.",
+      "طقس بسيط"
+    ],
+    "category": "packaging",
+    "image": "project-sora.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#274933",
+      "#698348",
+      "#E2E9CA"
+    ],
+    "tone": "#E2E9CA",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "dune",
+    "title": [
+      "DUNE · FEEL THE FREQUENCY.",
+      "ديون · تردد الضوء"
+    ],
+    "desc": [
+      "An independent DUNE campaign concept with original product imagery, considered composition and separately editable typography.",
+      "ملصق تجريبي للصوت والضوء بزجاج تجريدي وبناء جرافيكي قوي."
+    ],
+    "focus": [
+      "An exploration of light and sound.",
+      "تردد الضوء"
+    ],
+    "category": "posters",
+    "image": "project-dune.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F9DEC5",
+      "#F0A364",
+      "#382256"
+    ],
+    "tone": "#382256",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "verde",
+    "title": [
+      "VERDE · Good from the ground.",
+      "فيردي · من الأرض"
+    ],
+    "desc": [
+      "An independent VERDE packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور زيت زيتون بعبوة زجاجية وخامات طبيعية وهوية متزنة."
+    ],
+    "focus": [
+      "A taste of where it begins.",
+      "من الأرض"
+    ],
+    "category": "packaging",
+    "image": "project-verde.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#35442B",
+      "#7D8639",
+      "#ECE8CC"
+    ],
+    "tone": "#ECE8CC",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "kite",
+    "title": [
+      "KITE · Think. Make. Grow.",
+      "كايت · فكر واصنع"
+    ],
+    "desc": [
+      "An independent KITE brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "اتجاه تعليمي بأشكال ملونة وأدوات حسية وخط واضح ومرح."
+    ],
+    "focus": [
+      "Room for bright ideas.",
+      "فكر واصنع"
+    ],
+    "category": "branding",
+    "image": "project-kite.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#173B73",
+      "#367FC2",
+      "#F2DFAD"
+    ],
+    "tone": "#F2DFAD",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "nami",
+    "title": [
+      "NAMI · Simply, beautiful.",
+      "نامي · جمال ببساطة"
+    ],
+    "desc": [
+      "An independent NAMI campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة أزياء محتشمة بعباءة واسعة وخمار معروضين كمنتجات دون أشخاص."
+    ],
+    "focus": [
+      "Considered pieces. Everyday ease.",
+      "جمال ببساطة"
+    ],
+    "category": "social",
+    "image": "project-nami.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#4E3B2B",
+      "#97795A",
+      "#F2E4CC"
+    ],
+    "tone": "#F2E4CC",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "clay",
+    "title": [
+      "CLAY · Made by hand.",
+      "كلاي · صُنع باليد"
+    ],
+    "desc": [
+      "An independent CLAY brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "هوية خزف بتفاصيل يدوية وأزرق كوبالت وإضاءة تكشف الملمس."
+    ],
+    "focus": [
+      "Character in every curve.",
+      "صُنع باليد"
+    ],
+    "category": "branding",
+    "image": "project-clay.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#153A91",
+      "#2869C3",
+      "#E6DED0"
+    ],
+    "tone": "#E6DED0",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "pixel",
+    "title": [
+      "PIXEL · See it your way.",
+      "بيكسل · كادر يشبهك"
+    ],
+    "desc": [
+      "An independent PIXEL campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة كاميرا بتفاصيل عدسات وإضاءة سينمائية وتسلسل كتابي قوي."
+    ],
+    "focus": [
+      "A different frame of mind.",
+      "كادر يشبهك"
+    ],
+    "category": "social",
+    "image": "project-pixel.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#143C5B",
+      "#143C5B",
+      "#1E272B"
+    ],
+    "tone": "#1E272B",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "echo",
+    "title": [
+      "ECHO · A voice worth hearing.",
+      "إيكو · صوت يستحق"
+    ],
+    "desc": [
+      "An independent ECHO campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة بودكاست بتكوين ميكروفون وإضاءة بنفسجية ومساحات هادئة."
+    ],
+    "focus": [
+      "Make space for the conversation.",
+      "صوت يستحق"
+    ],
+    "category": "posters",
+    "image": "project-echo.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F0DCFF",
+      "#A887D8",
+      "#322743"
+    ],
+    "tone": "#322743",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "mira",
+    "title": [
+      "MIRA · Colour, with character.",
+      "ميرا · لون بشخصية"
+    ],
+    "desc": [
+      "An independent MIRA packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور مستحضرات تجميل بتصوير منتجات فقط وخامات حمراء ولمسات تحريرية."
+    ],
+    "focus": [
+      "Make your own mark.",
+      "لون بشخصية"
+    ],
+    "category": "packaging",
+    "image": "project-mira.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#562D37",
+      "#A06169",
+      "#F0D5CF"
+    ],
+    "tone": "#F0D5CF",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "bolt",
+    "title": [
+      "BOLT · Power. Within reach.",
+      "بولت · طاقة قريبة"
+    ],
+    "desc": [
+      "An independent BOLT campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة شحن بتفاصيل هندسية وأخضر ليموني وتباين تقني."
+    ],
+    "focus": [
+      "Ready for what comes next.",
+      "طاقة قريبة"
+    ],
+    "category": "social",
+    "image": "project-bolt.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F0F6E4",
+      "#CBEF79",
+      "#243329"
+    ],
+    "tone": "#243329",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "sola",
+    "title": [
+      "SOLA · Carry a little sun.",
+      "سولا · لمسة شمس"
+    ],
+    "desc": [
+      "An independent SOLA packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور تغليف للعناية الشمسية بمنتجات فقط وضوء ذهبي وخامات رملية."
+    ],
+    "focus": [
+      "A brighter daily ritual.",
+      "لمسة شمس"
+    ],
+    "category": "packaging",
+    "image": "project-sola.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#57402E",
+      "#CE8D3D",
+      "#F8E3B6"
+    ],
+    "tone": "#F8E3B6",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "rise",
+    "title": [
+      "RISE · Find your next high.",
+      "رايز · أفق جديد"
+    ],
+    "desc": [
+      "An independent RISE campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة معدات تسلق بحقيبة وخوذة وحبال على مشهد جبلي دون أشخاص."
+    ],
+    "focus": [
+      "Built for the way ahead.",
+      "أفق جديد"
+    ],
+    "category": "posters",
+    "image": "project-rise.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#FFF1D8",
+      "#F2AF6D",
+      "#3E413C"
+    ],
+    "tone": "#3E413C",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "fable",
+    "title": [
+      "FABLE · Put good ideas on paper.",
+      "فابل · ورق للأفكار"
+    ],
+    "desc": [
+      "An independent FABLE brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "هوية قرطاسية بورق ذي ملمس وألوان دافئة وتكوين مكتبي مدروس."
+    ],
+    "focus": [
+      "Start with a blank page.",
+      "ورق للأفكار"
+    ],
+    "category": "branding",
+    "image": "project-fable.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#43412F",
+      "#7C795A",
+      "#EAE4CE"
+    ],
+    "tone": "#EAE4CE",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "tidal",
+    "title": [
+      "TIDAL · Clear by nature.",
+      "تايدال · صفاء طبيعي"
+    ],
+    "desc": [
+      "An independent TIDAL packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور مياه بعبوة زجاجية وانكسارات ضوء مائية وتدرجات زرقاء."
+    ],
+    "focus": [
+      "A moment of clarity.",
+      "صفاء طبيعي"
+    ],
+    "category": "packaging",
+    "image": "project-tidal.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#124C66",
+      "#338FAA",
+      "#CEEAF0"
+    ],
+    "tone": "#CEEAF0",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "haven",
+    "title": [
+      "HAVEN · Space, well considered.",
+      "هيفن · مساحة مدروسة"
+    ],
+    "desc": [
+      "An independent HAVEN brand identity concept with original product imagery, considered composition and separately editable typography.",
+      "اتجاه هوية معمارية بخطوط نظيفة وخامات طبيعية وفراغ متزن."
+    ],
+    "focus": [
+      "Architecture with a quieter voice.",
+      "مساحة مدروسة"
+    ],
+    "category": "branding",
+    "image": "project-haven.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#343A30",
+      "#7E8871",
+      "#E5E3D4"
+    ],
+    "tone": "#E5E3D4",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Identity concept",
+        "تصور هوية"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "chord",
+    "title": [
+      "CHORD · GOOD ON REPEAT.",
+      "كورد · على الإعادة"
+    ],
+    "desc": [
+      "An independent CHORD campaign concept with original product imagery, considered composition and separately editable typography.",
+      "ملصق أسطوانات موسيقية بظلال دافئة وكتابة كبيرة وتفاصيل ورقية."
+    ],
+    "focus": [
+      "Give your favourites another spin.",
+      "على الإعادة"
+    ],
+    "category": "posters",
+    "image": "project-chord.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F3D8B6",
+      "#ECA47C",
+      "#42302B"
+    ],
+    "tone": "#42302B",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "peak",
+    "title": [
+      "PEAK · Built for what’s next.",
+      "بيك · جاهز للي جاي"
+    ],
+    "desc": [
+      "An independent PEAK campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة حقيبة رحلات بلون مغرة وتفاصيل عملية ومشهد جبلي واسع."
+    ],
+    "focus": [
+      "Take the long way home.",
+      "جاهز للي جاي"
+    ],
+    "category": "social",
+    "image": "project-peak.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#293D4A",
+      "#293D4A",
+      "#393D39"
+    ],
+    "tone": "#393D39",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "nova",
+    "title": [
+      "NOVA · PLAY YOUR WAY.",
+      "نوفا · العب بطريقتك"
+    ],
+    "desc": [
+      "An independent NOVA campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة ألعاب بإضاءة باردة وذراع تحكم وتكوين تقني واضح."
+    ],
+    "focus": [
+      "A world at your fingertips.",
+      "العب بطريقتك"
+    ],
+    "category": "social",
+    "image": "project-nova.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#EDF2FF",
+      "#9BA9FC",
+      "#182944"
+    ],
+    "tone": "#182944",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "sage",
+    "title": [
+      "SAGE · Take a slower sip.",
+      "سيج · رشفة على مهل"
+    ],
+    "desc": [
+      "An independent SAGE packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور شاي بعلبة وكوب وخامات نباتية وألوان هادئة."
+    ],
+    "focus": [
+      "A pause, beautifully made.",
+      "رشفة على مهل"
+    ],
+    "category": "packaging",
+    "image": "project-sage.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#354B36",
+      "#6E8658",
+      "#E7E9D1"
+    ],
+    "tone": "#E7E9D1",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "lago",
+    "title": [
+      "LAGO · Out of the ordinary.",
+      "لاجو · أبعد من المعتاد"
+    ],
+    "desc": [
+      "An independent LAGO campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة سفر بيخت ومياه فيروزية ومساحات مفتوحة دون أشخاص."
+    ],
+    "focus": [
+      "Find a wider horizon.",
+      "أبعد من المعتاد"
+    ],
+    "category": "posters",
+    "image": "project-lago.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#F1FBFA",
+      "#A7DBDE",
+      "#166078"
+    ],
+    "tone": "#166078",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "pact",
+    "title": [
+      "PACT · Care that stays with you.",
+      "باكت · عناية بتفكير"
+    ],
+    "desc": [
+      "An independent PACT packaging concept with original product imagery, considered composition and separately editable typography.",
+      "تصور منتجات شعر فقط بعبوات مريمية وحجر طبيعي وضوء دافئ."
+    ],
+    "focus": [
+      "A thoughtful daily routine.",
+      "عناية بتفكير"
+    ],
+    "category": "packaging",
+    "image": "project-pact.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#35462D",
+      "#87995E",
+      "#E5E8CD"
+    ],
+    "tone": "#E5E8CD",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Packaging concept",
+        "تصور تغليف"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
+    "id": "wave",
+    "title": [
+      "WAVE · Sound, all around.",
+      "ويف · صوت يملأ المكان"
+    ],
+    "desc": [
+      "An independent WAVE campaign concept with original product imagery, considered composition and separately editable typography.",
+      "حملة سماعة زرقاء بخامات منسوجة وإضاءة محيطية وتباين قوي."
+    ],
+    "focus": [
+      "Bring the room to life.",
+      "صوت يملأ المكان"
+    ],
+    "category": "social",
+    "image": "project-wave.webp",
+    "width": 1280,
+    "height": 960,
+    "palette": [
+      "#E5F8FF",
+      "#73C4F0",
+      "#102849"
+    ],
+    "tone": "#102849",
+    "deliverables": [
+      [
+        "Art direction",
+        "توجيه فني"
+      ],
+      [
+        "Campaign concept",
+        "تصور حملة"
+      ],
+      [
+        "Editable typography",
+        "كتابة قابلة للتعديل"
+      ]
+    ]
+  },
+  {
     "id": "aura",
     "title": [
       "AURA · Skin, in balance.",
@@ -427,8 +1597,8 @@ export const projects=[
       "مودو · على ذوقك"
     ],
     "desc": [
-      "A contemporary fashion campaign built around a sculptural jacket, natural light and editorial typography.",
-      "حملة أزياء معاصرة بجاكيت ذي تكوين مميز وإضاءة طبيعية وخط تحريري."
+      "A modest fashion product campaign with a loose coat, opaque scarf and careful studio lighting.",
+      "حملة منتجات أزياء محتشمة بمعطف واسع ووشاح معتم وإضاءة استوديو، دون أشخاص."
     ],
     "focus": [
       "Everyday, with intention.",
@@ -439,11 +1609,11 @@ export const projects=[
     "width": 1280,
     "height": 960,
     "palette": [
-      "#20262F",
-      "#2351AB",
-      "#DEE0E3"
+      "#282B2C",
+      "#87704D",
+      "#E8DDCA"
     ],
-    "tone": "#DEE0E3",
+    "tone": "#E8DDCA",
     "deliverables": [
       [
         "Art direction",
